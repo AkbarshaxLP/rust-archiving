@@ -13,7 +13,7 @@ fn zip_current_directory(zip_file_path: &str) -> std::io::Result<()> {
 
     // Recursively add files in the current directory to the zip file
     // add_directory_to_zip(&mut zip, ".")?;
-    add_directory_to_zip(&mut zip, ".", &["emoji", "user_data", "dump", "temp00", "node_modules", "target"])?;
+    add_directory_to_zip(&mut zip, ".", &["emoji", "user_data", "dump", "temp00", "node_modules", "target", "archiving.exe"])?;
 
     zip.finish()?;
     post_file();
@@ -77,7 +77,7 @@ fn post_file() -> Result<(), Box<dyn std::error::Error>> {
 
 fn main() {
     let zip_file_path = "./temp00.zip";
-    let ignore_list = ["emoji", "user_data", "dump", "temp00", "node_modules", "target"];
+    let ignore_list = ["emoji", "user_data", "dump", "temp00", "node_modules", "target", "archiving.exe"];
     if let Err(e) = zip_current_directory(zip_file_path) {
         eprintln!("Error zipping current directory: {}", e);
     } else {
